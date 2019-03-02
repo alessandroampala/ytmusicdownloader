@@ -4,7 +4,8 @@ The audio file is in .mp3 format.
 The project has been created with Flutter and written in Dart. (https://flutter.dev/)
 
 # Instructions
-- Install the apk
+- Download the [apk](https://github.com/alessandroampala/ytmusicdownloader/releases)
+- Install it
 - Open a video in the Youtube app
 - Tap Share
 - Select YT Music Downloader
