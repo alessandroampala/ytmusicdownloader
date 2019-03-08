@@ -13,6 +13,10 @@ The project has been created with Flutter and written in Dart. (https://flutter.
 
 IMPORTANT: You won't see the app icon in the Launcher, it can only be opened by a Share action.
 
+# Screenshot
+
+<img src="/screenshots/screenshot.png" width="50%" height="50%" alt="Screenshot image">
+
 # APIs used
 The app uses the following APIs in order to get the audio track:
 - [convertmp3.io API](http://www.convertmp3.io)
