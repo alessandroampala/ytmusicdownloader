@@ -9,7 +9,6 @@ import 'package:permission_handler/permission_handler.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -41,11 +40,10 @@ class _ScaffoldPageState extends State<ScaffoldPage> {
     getSharedText();
   }
 
-  Future ensurePermissionAllowed() async
-  {
-    Map<PermissionGroup, PermissionStatus> permissions = await PermissionHandler().requestPermissions([PermissionGroup.storage]);
-    switch(permissions[PermissionGroup.storage])
-    {
+  Future ensurePermissionAllowed() async {
+    Map<PermissionGroup, PermissionStatus> permissions =
+        await PermissionHandler().requestPermissions([PermissionGroup.storage]);
+    switch (permissions[PermissionGroup.storage]) {
       case PermissionStatus.unknown:
       case PermissionStatus.disabled:
       case PermissionStatus.denied:
@@ -81,32 +79,42 @@ class _ScaffoldPageState extends State<ScaffoldPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("YouTube Downloader"),
-      ),
-      body: ListView(
-        children: <Widget>[
-          Card(
-            child: 
-                Container(
-                  child: const ListTile(
-                    leading: Icon(Icons.code, color: Colors.white,),
-                    title: Text('Made by Alessandro Ampala', style: TextStyle(color: Colors.white),),
+        appBar: AppBar(
+          title: Text("YouTube Downloader"),
+        ),
+        body: ListView(
+          children: <Widget>[
+            Card(
+              child: Container(
+                child: const ListTile(
+                  leading: Icon(
+                    Icons.code,
+                    color: Colors.white,
                   ),
-                  decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.circular(20),),
-                ),
-            
-          ),
-          Card(
-            child:
-                Container(
-                  child: const ListTile(
-                    leading: Icon(Icons.info, color: Colors.red,),
-                    title: Text('Share a video from the YouTube app to start a download'),
+                  title: Text(
+                    'Made by Alessandro Ampala',
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
-          ),
-          /* Card(
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+            ),
+            Card(
+              child: Container(
+                child: const ListTile(
+                  leading: Icon(
+                    Icons.info,
+                    color: Colors.red,
+                  ),
+                  title: Text(
+                      'Share a video from the YouTube app to start a download'),
+                ),
+              ),
+            ),
+            /* Card(
             child:
                 Container(
                   child: const ListTile(
@@ -115,25 +123,23 @@ class _ScaffoldPageState extends State<ScaffoldPage> {
                   ),
                 ),
           ), */
-          Card(
-            child:
-                Container(
-                  child: const ListTile(
-                    leading: Icon(Icons.warning, color: Colors.orange,),
-                    title: Text('I am not responsible of the use that you do with this software'),
+            Card(
+              child: Container(
+                child: const ListTile(
+                  leading: Icon(
+                    Icons.warning,
+                    color: Colors.orange,
                   ),
+                  title: Text(
+                      'I am not responsible of the use that you do with this software'),
                 ),
-          ),
-        ],
-      )
-      
-      
-    );
+              ),
+            ),
+          ],
+        ));
   }
 
   void startDownloadFromLink(String url) async {
-    
-
     final taskId = await FlutterDownloader.enqueue(
       url: "http://www.convertmp3.io/fetch/?video=" + url,
       savedDir: '/storage/emulated/0/Download/',
@@ -150,10 +156,9 @@ class _ScaffoldPageState extends State<ScaffoldPage> {
           query: "SELECT * FROM task WHERE task_id = '" + taskId + '\';');
 
       progresso = progress;
-      
+
       //if the video has never been downloaded from www.convertmp3.io, the progress will be less than 0
-      if (progress < 0)
-      {
+      if (progress < 0) {
         FlutterDownloader.cancel(taskId: id);
         _launchURL(url);
       } else if (progress > 0) {
