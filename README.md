@@ -13,8 +13,12 @@ The project has been created with Flutter and written in Dart. (https://flutter.
 
 IMPORTANT: You won't see the app icon in the Launcher, it can only be opened by a Share action.
 
+# APIs used
+The app uses the following APIs in order to get the audio track:
+- [convertmp3.io API](http://www.convertmp3.io)
+- [break.tv API](https://break.tv/en/api)
 
-# Packages to mention
+# Flutter packages to mention
 The software uses the following Flutter packages in order to work:
 - [flutter_downloader](https://github.com/fluttercommunity/flutter_downloader)
 - [FlutterToast](https://github.com/PonnamKarthik/FlutterToast)
