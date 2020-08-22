@@ -3,7 +3,7 @@ Simple app for Android that starts a download when a video from the Youtube app 
 The audio file is in .mp3 format.
 The project has been created with Flutter and written in Dart. (https://flutter.dev/)
 
-# WARNING: not sure it still work
+# WARNING: not sure it still works
 
 # Instructions
 - Download the [apk](https://github.com/alessandroampala/ytmusicdownloader/releases)
